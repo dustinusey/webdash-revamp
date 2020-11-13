@@ -1,0 +1,29 @@
+@mixin simpleHeight($size) {
+    @content;
+    height: $size;
+    width: $size;
+}
+
+@mixin size($height, $width) {
+    @content;
+    height: $height;
+    width: $width;
+}
+
+
+
+@mixin simpleFlex($direction) {
+    @content;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex($dir, $wrap, $just, $align) {
+    @content;
+    display: flex;
+    flex-direction: $dir;
+    flex-wrap: $wrap;
+    justify-content: $just;
+    align-items: $align;
+}
