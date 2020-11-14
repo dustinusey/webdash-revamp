@@ -1,0 +1,54 @@
+section.social {
+    @include simpleFlex(column);
+    padding: 0 10px;
+    & .social-card {
+        width: 100%;
+        margin: 10px auto;
+        background:  var(--light);
+        border: 1px solid var(--light2);
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background .3s;
+        @include flex(row, nowrap, space-evenly, center);
+            &:hover {
+                background: var(--light-shade);
+            }
+            &:hover svg {
+                animation: tada 1s ease forwards;
+            }
+            &:hover .info-container h2,
+            &:hover .info-container p {
+                font-size: 2em;
+            }
+        & .svg-container {
+            margin: auto;
+            padding: 15px;
+            border-radius: 50%;
+            background: var(--current-theme);
+            @include simpleSize(100px);
+            @include simpleFlex(row);
+        }
+        & svg {
+            width: 50px;
+        }
+        & .info-container {
+            margin: auto;
+                & h2, & p {
+                    transition: .4s;
+                }
+        }
+    }
+}
+.fb svg {
+    width: 30px!important;
+}
+
+@media( min-width: $l) {
+    section.social {
+        flex-direction: row;
+            & .social-card {
+                margin: 10px;
+            }
+    }
+}

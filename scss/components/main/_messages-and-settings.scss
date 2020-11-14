@@ -1,0 +1,249 @@
+.messages-and-settings {
+    font-size: .8em;
+    & h2 {
+        text-align: center;
+        background: var(--light-shade);
+        padding: 10px;
+        font-weight: 300;
+    }
+    & .container {
+        @include size(auto, 100%);
+    }
+    & .content {
+        @include flex(column, nowrap, flex-start, center);
+            & form {
+                width: 100%;
+                padding: 5px 15px;
+            }
+            & input, & textarea {
+                width: 100%;
+                margin: 0;
+                border: 1px solid var(--light2);
+                margin: 5px auto;
+                padding: 8px;
+                font-weight: 300;
+                font-size: 1.2em;
+                outline: none;
+                border-radius: 3px;
+                transition: .2s;
+                    &:focus {
+                        border-color: rgb(147, 162, 173);
+                    }
+            }
+            & input {
+
+            }
+            & textarea {
+                resize: none;
+                height: 200px;
+            }
+        
+    }
+    & .button-div {
+        @include flex(column, nowrap, space-evenly, center);
+        padding: 15px;
+         & button {
+             padding: 10px;
+             background: var(--current-theme);
+             outline: none;
+             border-radius: 5px;
+             border: 1px solid var(--light2);
+             width: 100%;
+             transition: .2s;
+                &:focus {
+                    border-color: rgb(147, 162, 173);
+                }
+                &.settings-btn {
+                    &:first-child {
+                        margin-bottom: 5px;
+                    }
+                }
+                &.cancel {
+                    background:var(--light-shade);
+                }
+
+         }
+    }
+}
+
+
+.settings .container {
+    & .component {
+        width: 100%;
+        padding: 5px 15px;
+        margin: 5px auto;
+        transition: .3s;    
+            &:hover {
+                background: var(--light-shade);
+            }
+    }
+    
+      
+    & input[type=checkbox] {
+        cursor: pointer;
+        margin: 15px auto;
+        position: relative;
+        width: 60px;
+        height: 20px;
+        -webkit-appearance: none;
+        background: var(--light2);
+        outline: none;
+        border-radius: 20px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        transition: 0.4s;
+            &:focus {
+                border: none;
+            }
+      }
+      
+    & input:checked[type=checkbox] {
+        background:var(--current-theme);
+      }
+      
+    & input[type=checkbox]:before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        top: -2px;
+        left: 0;
+        background: white;
+        transform: scale(1.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        transition: 0.2s;
+      }
+      
+    & input:checked[type=checkbox]:before {
+        left: 40px;
+      }
+}
+
+.settings-content {
+    display: grid!important;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+}
+.content-group {
+    @include flex(column, nowrap, center, center);
+        & p {
+            margin-top: 15px;
+            text-align: center;
+        }
+        & select {
+            margin: 15px auto;
+            width: 75%;
+            min-width: 200px;
+            max-width: 400px;
+            padding: 8px;
+            outline: none;
+            border: 1px solid var(--light2);
+            border-radius: 3px;
+        }
+}
+.theme-container {
+    width: 100%;
+    margin: 20px auto;;
+    @include flex(row, nowrap, space-evenly, center);
+        & .theme-option {
+            border-radius: 50%;
+            @include simpleSize(50px);
+            border: 2px solid white;
+            cursor: pointer;
+            transition: .2s;
+                &:hover {
+                    transform: scale(1.3);
+                }
+                &.active {
+                    border-color: rgb(144, 207, 188);
+                    pointer-events: none;
+                }
+                &.yellow {
+                    background: var(--main-yellow);
+                }
+                &.green {
+                    background: var(--main-green);
+                }
+                &.teal {
+                    background: var(--main-teal);
+                }
+                
+                &.stealth {
+                    background: var(--main-stealth);
+                }
+                
+        }
+}
+
+  
+@media (min-width: $md) {
+    .settings-content {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 2fr 2fr 1fr;
+        grid-gap: 2px;
+        grid-template-areas: 
+        "email themes"
+        "privacy themes"
+        "timezone timezone"
+    }
+    .email-settings {
+        grid-area: email;
+        height: 100%;
+    }
+    .privacy-settings {
+        grid-area: privacy;
+        height: 100%;
+    }
+    .timezone-settings {
+        grid-area: timezone;
+        height: 100%;
+    }
+    .theme-settings {
+        grid-area: themes;
+        height: 100%;
+        @include flex(column, nowrap, center, center);
+        
+    }
+    .component {
+        border: 1px solid var(--light-shade);
+    }
+}
+
+@media (min-width: $md) {
+    .messages-and-settings {
+        @include flex(row, nowrap, center, center);
+        & .messages-and-settings-content {
+            margin: auto 1px;
+            width: 50%;
+        }
+        & .container {
+            & .content {
+                @include size(350px, 100%);
+                & form {
+                    height: 300px;
+                    margin-bottom: auto;
+                }
+                    & textarea {
+                        height: 101.5%;
+                    }
+            }
+            & .button-div {
+                flex-direction: row;
+                @include size(80px, 100%);
+                    & button {
+                        padding: 15px;
+                        &.send-btn {
+                            width: 250px;
+                            margin-right: auto;
+                        }
+                        &.settings-btn {
+                            &:first-child {
+                                margin-bottom: 0;
+                                margin-right: 2px;
+                            }
+                        }
+                    }
+            }
+        }
+    }
+}

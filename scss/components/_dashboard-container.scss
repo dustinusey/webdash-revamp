@@ -13,13 +13,13 @@
 }
 
 header {
-    background: var(--main-yellow);
+    background: var(--current-theme);
 }
 nav {
     background: var(--light2);
 }
 main {
-    background: var(--light);
+    background: var(--current-bg);
 }
 
 @media (min-width: $md) {
@@ -63,7 +63,7 @@ main {
         width: 90%;
         overflow: hidden;
         border-radius: 10px;
-        box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+        box-shadow: 0px 0px 15px rgba(0,0,0,.50);
         max-width: 1900px;
     }
 }

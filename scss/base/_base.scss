@@ -4,6 +4,7 @@
 
     --light: #f4f6fd;
     --light2: #dfe5f8;
+    --light-shade: #e8eaf3;
 
     --slate: #282E3F;
     --slate2: #1F232E;
@@ -15,9 +16,15 @@
 
     --alert-red: #ed2427b6;
     --alert-orange: #F59425;
+
+
     
 
     --timing: .5s;
+
+
+    --current-theme: var(--main-teal);
+    --current-bg: var(--light);
 }
 
 * {

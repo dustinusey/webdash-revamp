@@ -30,7 +30,7 @@ header {
                 cursor: poiner;
                     &:hover {
                         color: var(--slate);
-                        animation: bounce 1s linear forwards;
+                        animation: wobble 1s linear forwards;
                     }
             }
 

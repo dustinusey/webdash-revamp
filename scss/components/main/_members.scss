@@ -1,0 +1,67 @@
+.members {
+    margin-top: 10px;
+    
+    @include flex(column, nowrap, flex-start, center);
+        & .members-content {
+            font-size: .8em;
+            @include size(auto, 100%);
+                & h2 {
+                    text-align: center;
+                    background: var(--light-shade);
+                    padding: 10px;
+                    font-weight: 300;
+                }
+        }
+    & .member-card {
+        @include flex(row, nowrap, flex-start, center);
+        padding: 10px 15px;
+        transition: .2s;
+        cursor: pointer;
+        border-radius: 5px;
+            &:hover {
+                background: var(--light-shade);
+            }
+            &:hover a {
+                margin-left: 10px;
+                color: black;
+            }
+            & img {
+                width: 45px;
+                margin-right: 10px;
+            }
+            & .card-info {
+
+            }
+            & .card-date {
+                margin-left: auto;
+                font-weight: 300;
+                display: none;
+            }
+            & .activity-time {
+                display: none;
+                font-weight: 300;
+                font-size: .8em;
+            }
+    }
+}
+
+@media (min-width: $md) {
+    .members .members-content {
+        font-size: 1em;
+        & .card-date, & .activity-time {
+            display: block;
+        }
+    }
+    
+}
+
+@media (min-width: $l) {
+    .members {
+        flex-direction: row;
+            & .members-content {
+                margin: auto 1px;
+                @include size(auto, 50%);
+                    
+            }
+    }
+}

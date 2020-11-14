@@ -1,5 +1,6 @@
 nav {
     @include simpleFlex(row);
+    border-bottom: 1px solid rgb(209, 216, 224);
         & ul {
             @include simpleSize(100%);
             max-width: 500px;
@@ -16,6 +17,9 @@ nav {
                             background: rgba(0, 0, 0, 0.08);
                             border-radius: 5px;
                         }
+                        & a {
+                            color: var(--slate);
+                        }
                         & div {
                             @include simpleFlex(row);
                         }
@@ -23,14 +27,17 @@ nav {
         }
 }
 
-@media (min-width: $md) {
+nav .active-nav-item {
+    background: rgba(0, 0, 0, 0.08)!important;
+}
+@media (min-width: $l) {
     .theme-nav-item {
         display: flex!important;
         margin-top: auto;
     }
-}
-@media (min-width: $l) {
     nav {
+        border-bottom: none;
+        border-right: 1px solid rgb(209, 216, 224);
         flex-direction: column;
         justify-content: flex-start;
             & ul {

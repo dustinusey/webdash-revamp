@@ -10,6 +10,22 @@ a {
     text-decoration: none;
 }
 
+.i-theme {
+    opacity: 0.2;
+    margin-right: 10px;
+    cursor: default;
+}
+
+.activity {
+    font-weight: 300;
+}
+
 .boldest {
     font-weight: 900;
+}
+
+.members a {
+    color: var(--slate2);
+    font-weight: 300;
+    transition: .2s;
 }
