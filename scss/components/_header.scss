@@ -1,0 +1,56 @@
+header {
+    @include simpleFlex(row);
+    justify-content: space-between;
+    overflow: hidden;
+    & .logo-container {
+        padding-right: 15px;
+        @include simpleFlex(row);
+        transition: background .3s;
+            &:hover {
+                background: rgba(0, 0, 0, 0.05);
+            }
+            & img {
+                width: 55px;
+            }
+            & h1 {
+                font-weight: 100;
+            }
+    }
+
+
+    & .utility-container {
+        padding: 5px 15px;
+        @include simpleFlex(row);
+        position: relative;
+        cursor: pointer;
+            & i {
+                font-size: 1.9em;
+                color: rgba(0, 0, 0, 0.5);
+                transition: color .3s;
+                cursor: poiner;
+                    &:hover {
+                        color: var(--slate);
+                        animation: bounce 1s linear forwards;
+                    }
+            }
+
+            & .alert {
+                @include simpleSize(15px);
+                background-image: linear-gradient(  var(--alert-red) 30%, var(--alert-orange) 70%);
+                border-radius: 50%;
+                position: absolute;
+                top: 5px;
+                left: 37px;
+            }
+
+            & .user-container {
+                border-left: 1px solid rgb(127, 137, 145);
+                height: 50%;
+                margin-left: 20px;
+                    & img {
+                        width: 40px;
+                        margin: 0 10px;
+                    }
+            }
+    }
+}

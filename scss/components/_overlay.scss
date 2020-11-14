@@ -1,0 +1,12 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include simpleSize(100%);
+    background: rgba(54, 63, 83, 0.548);
+    z-index: 50;
+    transition: .7s;
+
+    opacity: 0;
+    pointer-events: none;
+}
