@@ -462,6 +462,10 @@ button {
   font-weight: 500;
 }
 
+.dev {
+  opacity: 0;
+}
+
 .dashboard-container {
   height: 100%;
   transition: 0.3s;
