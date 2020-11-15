@@ -1,3 +1,24 @@
+const dashContainer = document.querySelector('.dashboard-container');
+const notificationPanel = document.querySelector('.notification-panel');
+dashContainer.addEventListener('click', e => {
+    if (e.target.classList.contains('fa-times')) {
+        //do nothing
+    } else
+    if (e.target !== notificationBell) {
+        notificationPanel.classList.remove('show-notifications');
+    }
+});
+
+
+const closeNotifications = document.querySelectorAll('.item i');
+notificationPanel.addEventListener('click', e => {
+    closeNotifications.forEach((close) => {
+        if (e.target === close) {
+            e.target.parentNode.style.display = 'none';
+        }
+    })
+})
+
 // THEME OVERRIDES 
 
 let root = document.documentElement;
@@ -42,10 +63,23 @@ themeContainer.addEventListener('click', e => {
 
 
 
+const notificationBell = document.querySelector('.utility-container i');
+notificationBell.addEventListener('click', () => {
+    const notificationPanel = document.querySelector('.notification-panel');
+    notificationPanel.classList.add('show-notifications');
+});
+
+
+
+
+
+
+
+
+
+
+
 // Chart functionality & Data
-
-
-
 
 
 // Chart sliders
@@ -207,6 +241,15 @@ let mobileTraffic = new Chart(doughnutChart, {
 
 
 
+const alertToggle = document.querySelector('.fa-times');
+alertToggle.addEventListener('click', e => {
+        e.target.parentNode.style.opacity = '0';
+        e.target.parentNode.style.pointerEvents = 'none';
+        setTimeout(() => {
+            e.target.parentNode.style.display = 'none';
+        }, 800)
+})
+
 
 
 
@@ -282,7 +325,7 @@ sendBtn.addEventListener('click', () => {
 // 
 
 const overlay = document.querySelector('.overlay');
-const dashContainer = document.querySelector('.dashboard-container');
+
 function showOverlay() {
     overlay.style.pointerEvents = 'auto';
     overlay.style.opacity = '1';

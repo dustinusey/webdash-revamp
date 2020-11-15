@@ -1,7 +1,6 @@
 header {
     @include simpleFlex(row);
     justify-content: space-between;
-    overflow: hidden;
     & .logo-container {
         padding-right: 15px;
         @include simpleFlex(row);
@@ -55,9 +54,87 @@ header {
     }
 }
 
+
+
+.notification-panel {
+    @include size(0%, 100%);
+    background: white;
+    position: absolute;
+    z-index: 100;
+    top: 65px;
+    transition: .5s;
+    opacity: 0;
+    padding: 15px;
+    pointer-events: none;
+        & h2 {
+            text-align:center;
+        }
+        & .notification-items {
+            @include flex(column, nowrap, flex-start, flex-start);
+            margin: 20px auto 5px;
+                & .item {
+                    position: relative;
+                    padding: 10px;
+                    width: 100%;
+                    border-radius: 5px;
+                    transition: .3s;
+                    cursor: pointer;
+                    border: 1px solid var(--light2);
+                    margin: 2px auto;
+                        & i {
+                            position: absolute;
+                            top: 5px;
+                            right: 5px;
+                            padding: 5px;
+                            color: rgb(116, 135, 151);
+                        }
+                        & p {
+                            color: rgb(80, 91, 107);
+                        }
+                        &:hover {
+                            background: var(--current-theme);
+                        }
+                }
+        }
+}
+
+
+.show-notifications {
+    height: auto;
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(78, 94, 104, 0.623);
+    border-radius: 5px;
+    pointer-events: auto;
+}
+
+
+
+@media (min-width: $md) {
+    .notification-panel {
+        width: 400px;
+        right: 150px;
+        height: auto;
+        
+    }
+    
+}
+
+
 @media (min-width: $l) {
     header {
         border-bottom: 2px solid rgb(255, 255, 255);
+    }
+    .notification-panel {
+        top: 55px;
+    }
+    
+}
+
+
+@media (min-width: $xxl) {
+    .notification-panel {
+        top: 100px;
+        right: 235px;
     }
 }
 
