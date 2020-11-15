@@ -121,15 +121,35 @@
 
             <!-- charts -->
             <section id="charts" class="charts">
+                <h2>Traffic Overview</h2>
+                <div class="chart-slider-container">
+                    <div class="slider"></div>
+                    <ul>
+                        <li>
+                            <p>Hourly</p>
+                        </li>
+                        <li>
+                            <p>Daily</p>
+                        </li>
+                        <li>
+                            <p>Weekly</p>
+                        </li>
+                        <li>
+                            <p>Monthly</p>
+                        </li>
+                    </ul>
+                </div>
                 
                 <div class="full-size-chart line-chart">
                     <canvas id="trafficChart"></canvas>
                 </div>
                 <div class="half-size-charts">
                     <div class="bar-chart chart-parent">
+                        <h2>Daily Traffic</h2>
                         <canvas id="barChart"></canvas>
                     </div>
                     <div class="doughnut-chart chart-parent">
+                        <h2>Devices</h2>
                         <canvas id="doughnutChart"></canvas>
                     </div>
                 </div>

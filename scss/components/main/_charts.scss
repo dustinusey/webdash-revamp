@@ -1,6 +1,12 @@
 section.charts {
     height: auto;
-    background: var(--light-shade);
+    background:rgb(237, 240, 255);
+    padding: 50px 15px; 
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: rgb(87, 96, 107);
+        }
 }
 
 
@@ -18,9 +24,59 @@ section.charts {
             height: 25vh;
             width: 100%;
             padding: 5px 15px;
-            
+        }
+        & .bar-chart {
+            margin-bottom: 45px;
         }
 }
+
+
+
+.chart-slider-container {
+    position: relative;
+    @include size(auto, 100%);
+        & p {
+            pointer-events: none;
+        }
+        & .slider {
+            @include size(30px, 70px);
+            background:var(--current-theme);
+            border-radius: 10px;
+            position: absolute;
+            display: none;
+            top: -7px;
+            right: 310px;
+            transition: .3s ease-in-out;
+        }
+        & ul {
+            
+            @include simpleFlex(row);
+            justify-content: space-evenly;
+            & li {
+                cursor: pointer;
+                z-index: 5;
+                list-style: none;
+
+            }
+        }
+}
+
+@media (min-width: $md) {
+    section.charts h2 {
+        text-align: left;
+    }
+    .chart-slider-container {
+        & ul {
+            max-width: 400px;
+            margin: 0 10px 0 auto;
+            }
+        & .slider {
+            display: block;
+        }
+    }
+}
+
+
 
 @media (min-width: $l) {
     .half-size-charts {
@@ -30,6 +86,9 @@ section.charts {
             }
             & canvas {
                 padding: 5px 15px;
+            }
+            & .bar-chart {
+                margin-bottom: 0;
             }
     }
 }

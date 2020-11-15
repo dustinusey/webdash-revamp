@@ -343,17 +343,17 @@ template {
 :root {
   --light: #f4f6fd;
   --light2: #dfe5f8;
-  --light-shade: #e8eaf3;
+  --light-shade: #e5e8f7;
   --slate: #282E3F;
   --slate2: #1F232E;
-  --main-yellow:#DCE7C7;
+  --main-yellow:#e7e5c7;
   --main-green:#CBE7C7;
   --main-teal:#bce5e5;
   --main-stealth:#C7D5E7;
   --alert-red: #ed2427b6;
   --alert-orange: #F59425;
   --timing: .5s;
-  --current-theme: var(--main-teal);
+  --current-theme: var(--main-yellow);
   --current-bg: var(--light);
 }
 
@@ -403,6 +403,10 @@ a {
   color: var(--slate2);
   font-weight: 300;
   transition: 0.2s;
+}
+
+button {
+  cursor: pointer;
 }
 
 .overlay {
@@ -722,7 +726,13 @@ section.alert p i {
 /* END DASHBOARD SEARCH */
 section.charts {
   height: auto;
-  background: var(--light-shade);
+  background: #edf0ff;
+  padding: 50px 15px;
+}
+section.charts h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #57606b;
 }
 
 .full-size-chart {
@@ -744,7 +754,56 @@ section.charts {
   width: 100%;
   padding: 5px 15px;
 }
+.half-size-charts .bar-chart {
+  margin-bottom: 45px;
+}
 
+.chart-slider-container {
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+.chart-slider-container p {
+  pointer-events: none;
+}
+.chart-slider-container .slider {
+  height: 30px;
+  width: 70px;
+  background: var(--current-theme);
+  border-radius: 10px;
+  position: absolute;
+  display: none;
+  top: -7px;
+  right: 310px;
+  transition: 0.3s ease-in-out;
+}
+.chart-slider-container ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.chart-slider-container ul li {
+  cursor: pointer;
+  z-index: 5;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  section.charts h2 {
+    text-align: left;
+  }
+
+  .chart-slider-container ul {
+    max-width: 400px;
+    margin: 0 10px 0 auto;
+  }
+  .chart-slider-container .slider {
+    display: block;
+  }
+}
 @media (min-width: 1024px) {
   .half-size-charts {
     flex-direction: row;
@@ -754,6 +813,9 @@ section.charts {
   }
   .half-size-charts canvas {
     padding: 5px 15px;
+  }
+  .half-size-charts .bar-chart {
+    margin-bottom: 0;
   }
 }
 section.social {
