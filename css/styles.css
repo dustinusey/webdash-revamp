@@ -339,6 +339,7 @@ template {
 }
 
 /* sizing */
+/* positioning */
 /* FLEX */
 :root {
   --light: #f4f6fd;
@@ -983,6 +984,35 @@ section.social .social-card .info-container h2, section.social .social-card .inf
   display: none;
   font-weight: 300;
   font-size: 0.8em;
+}
+
+.messaging {
+  position: relative;
+}
+.messaging .users {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 100px;
+  height: 100px;
+  width: 85%;
+  background: white;
+  border: 2px solid var(--light2);
+  border-radius: 3px;
+  overflow: auto;
+  transition: 0.3s;
+  height: 0;
+  opacity: 0;
+}
+.messaging .users ul li {
+  padding: 10px;
+  font-size: 1.1em;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.messaging .users ul li:hover {
+  background: var(--light2);
 }
 
 @media (min-width: 768px) {

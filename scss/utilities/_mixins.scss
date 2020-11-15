@@ -11,6 +11,14 @@
     width: $width;
 }
 
+/* positioning */
+@mixin absoluteCenter {
+    @content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /* FLEX */
 @mixin simpleFlex($direction) {

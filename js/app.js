@@ -213,6 +213,44 @@ let mobileTraffic = new Chart(doughnutChart, {
 
 // messaging functionality
 
+
+const userField = document.querySelector('form input');
+const users = document.querySelector('.users');
+const userNames = document.querySelectorAll('.users li');
+const textarea = document.querySelector('form textarea');
+textarea.addEventListener('click', e => {
+    if (e.target === textarea) {
+        users.style.height = '0px';
+        users.style.opacity = '0';
+    }
+})
+
+const userData = [];
+
+userNames.forEach((name) => {
+    userData.push(name.textContent)
+})
+
+users.addEventListener('click', e => {
+    users.style.height = '0px';
+    users.style.opacity = '0';
+    userField.value = e.target.textContent;
+})
+
+userField.addEventListener('keyup', e => {
+    users.style.height = '100px';
+    users.style.opacity = '1';
+
+    let value = userField.value.toLowerCase();
+    userData.forEach((user, index) => {
+        if (user.toLowerCase().includes(value)) {
+            userNames[index].style.display = 'block';
+        } else {
+            userNames[index].style.display = 'none';
+        }
+    })
+});
+
 const sendBtn = document.querySelector('.send-btn');
 sendBtn.addEventListener('click', () => {
     const userField = document.querySelector('form input');
