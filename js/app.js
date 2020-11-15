@@ -1,7 +1,15 @@
-let root = document.documentElement;
+// THEME OVERRIDES 
 
+let root = document.documentElement;
 // root.style.setProperty('--current-theme', 'red');
 
+
+const themes = [
+    '#e7e5c7',
+    '#CBE7C7',
+    '#bce5e5',
+    '#C7D5E7'
+]
 
 
 const yellow = '#e7e5c7';
@@ -14,7 +22,33 @@ const darkSlate2 = ' #e8eaf3';
 
 let currentTheme = yellow;
 
+// 
 
+const themeContainer = document.querySelector('.theme-container');
+themeContainer.addEventListener('click', e => {
+    const themeOptions = document.querySelectorAll('.theme-option');
+    themeOptions.forEach((theme, index) => {
+        if (e.target === theme) {
+            root.style.setProperty('--current-theme', themes[index]);
+            trafficChart.data.datasets[0].backgroundColor = themes[index];
+            dailyTraffic.data.datasets[0].backgroundColor = themes[index];
+            mobileTraffic.data.datasets[0].backgroundColor = themes[index];
+            trafficChart.update();
+            dailyTraffic.update();
+            mobileTraffic.update();
+        }
+    })
+})
+
+
+
+// Chart functionality & Data
+
+
+
+
+
+// Chart sliders
 
 //slider pos
 const sliderPos = [
@@ -27,21 +61,6 @@ const sliderPos = [
     // monthly
     '46'
 ];
-
-const trafficToggle_data = [
-    [12, 19, 3, 5, 2, 3],
-    [33, 29, 14, 34, 33],
-    [20, 11, 17, 25, 28],
-    [12, 27, 13, 15, 12, 13]
-];
-
-const trafficToggle_labels = [
-    ['12am', '4am', '8am', '12pm', '4pm', '8pm'],
-    ['5th', '10th', '15th', '20th', '25th'],
-    ['week 1', 'week 2', 'week 3', 'week 4'],
-    ['January', 'April', 'July', 'October', 'December']
-];
-
 
 const sliderContainer = document.querySelector('.chart-slider-container');
 const sliderItem = document.querySelectorAll('.chart-slider-container li');
@@ -63,7 +82,19 @@ slider.addEventListener('animationend', () => {
     slider.style.animation = 'none';
 })
 
+const trafficToggle_data = [
+    [12, 19, 3, 5, 2, 3],
+    [33, 29, 14, 34, 33],
+    [20, 11, 17, 25, 28],
+    [12, 27, 13, 15, 12, 13]
+];
 
+const trafficToggle_labels = [
+    ['12am', '4am', '8am', '12pm', '4pm', '8pm'],
+    ['5th', '10th', '15th', '20th', '25th'],
+    ['week 1', 'week 2', 'week 3', 'week 4'],
+    ['January', 'April', 'July', 'October', 'December']
+];
 
 let lineChart = document.getElementById('trafficChart').getContext('2d');
 let trafficChart = new Chart(lineChart, {
@@ -96,8 +127,6 @@ let trafficChart = new Chart(lineChart, {
         }
     }
 });
-
-
 
 
 let barChart = document.getElementById('barChart').getContext('2d');
@@ -136,7 +165,6 @@ let dailyTraffic = new Chart(barChart, {
 });
 
 
-
 let doughnutChart = document.getElementById('doughnutChart').getContext('2d');
 let mobileTraffic = new Chart(doughnutChart, {
     type: 'doughnut',
@@ -170,3 +198,12 @@ let mobileTraffic = new Chart(doughnutChart, {
         }
     }
 });
+
+
+
+
+
+
+
+
+// 
