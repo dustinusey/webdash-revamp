@@ -60,7 +60,7 @@ let currentTheme = yellow;
 const checkedEmail = JSON.parse(localStorage.getItem("email-checkbox"));
 document.getElementById("email-checkbox").checked = checkedEmail;
 
-const checkedPrivacy = JSON.parse(localStorage.getItem("profile-checkbox"));
+const checkedPrivacy = JSON.parse(localStorage.getItem("privacy-checkbox"));
 document.getElementById("privacy-checkbox").checked = checkedPrivacy;
 
 const timezoneSelect = document.getElementById('timezone-select');
@@ -72,7 +72,7 @@ function saveEmailSettings() {
   }
 function savePrivacySettings() {
     const privacyCheckbox = document.getElementById("privacy-checkbox");
-    localStorage.setItem("profile-checkbox", privacyCheckbox.checked);
+    localStorage.setItem("privacy-checkbox", privacyCheckbox.checked);
 }
 function saveTimezone() {
     let timezoneSelection = document.getElementById('timezone-select').value;
@@ -97,8 +97,8 @@ function saveTimezone() {
       localStorage.setItem('privacy-checkbox', false);
       localStorage.removeItem('timezone', 'Please Choose a Timezone');
 
-      document.getElementById("email-checkbox").checked = checkedEmail;
-      document.getElementById("privacy-checkbox").checked = checkedPrivacy;
+      document.getElementById("email-checkbox").checked = false;
+      document.getElementById("privacy-checkbox").checked = false;
       timezoneSelect.value = localStorage.getItem('timezone');
       localStorage.removeItem('theme');
 
