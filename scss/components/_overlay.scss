@@ -5,8 +5,41 @@
     @include simpleSize(100%);
     background: rgba(54, 63, 83, 0.548);
     z-index: 50;
-    transition: .7s;
+    transition: .3s;
+    padding: 15px;
 
     opacity: 0;
     pointer-events: none;
+
+    @include flex(row, nowrap, center, center);
+        & .alert-card {
+            margin: auto;
+        }
+}
+
+
+.alert-card {
+    padding: 25px;
+    background: var(--light);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 20px rgba(56, 61, 66, 0.76);
+        & h2 {
+            margin: 10px auto;
+        }
+        & p {
+            margin: 25px auto;
+            font-weight: 300;
+            max-width: 400px;
+        }
+        &  button {
+            background: var(--current-theme);
+            padding: 10px;
+            border: 1px solid var(--light2);
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+            outline: none;
+            font-weight: 500;
+        }
 }

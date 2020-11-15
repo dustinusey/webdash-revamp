@@ -13,6 +13,9 @@ nav {
                     list-style: none;
                     color: rgb(63, 74, 82);
                     transition: .3s;
+                        & .nav-item, & i {
+                            pointer-events: none;
+                        }
                         &:hover {
                             background: rgba(0, 0, 0, 0.08);
                             border-radius: 5px;

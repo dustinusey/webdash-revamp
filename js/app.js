@@ -201,9 +201,96 @@ let mobileTraffic = new Chart(doughnutChart, {
 
 
 
+// 
 
 
 
 
+
+
+
+
+
+// messaging functionality
+
+const sendBtn = document.querySelector('.send-btn');
+sendBtn.addEventListener('click', () => {
+    const userField = document.querySelector('form input');
+    const textField = document.querySelector('form textarea');
+    if (userField.value === '' && (textField.value === '')) {
+        showOverlay();
+        createAlert('Your message is empty!', 'Please make sure to choose a user to send a massage to as well as write a message.')
+    } else if
+        (userField.value === '') {
+            showOverlay();
+            createAlert('No user selected!', 'Make sure to include a user to send your message to.')
+        }
+    else if
+        (textField.value == '') {
+            showOverlay();
+            createAlert('No message!', 'Make sure you provide a message to the user.')
+        }
+    else {
+        setTimeout(() => {
+            showOverlay();
+            createAlert('Message sent successfully!', `Your message has been sent to <span class="bolder">${userField.value}</span>`)
+            userField.value = '';
+            textField.value = '';
+        }, 1200);
+    }
+    
+})
 
 // 
+
+const overlay = document.querySelector('.overlay');
+const dashContainer = document.querySelector('.dashboard-container');
+function showOverlay() {
+    overlay.style.pointerEvents = 'auto';
+    overlay.style.opacity = '1';
+    dashContainer.style.filter = 'blur(3px) grayscale(1)'
+}
+function hideOverlay() {
+    overlay.style.pointerEvents = 'none';
+    overlay.style.opacity = '0';
+    dashContainer.style.filter = 'blur(0px)'
+}
+
+function createAlert(alertText, bodyText) {
+    overlay.innerHTML =
+    `
+    <div class="alert-card">
+        <h2>${alertText}</h2>
+        <p>${bodyText}</p>
+        <button class="close-overlay">Close</button>
+    </div>
+    `
+}
+
+overlay.addEventListener('click', e => {
+    if (e.target === overlay || e.target.classList.contains('close-overlay')) {
+        hideOverlay();
+    }
+});
+
+
+
+const nav = document.querySelector('nav');
+const navItems = document.querySelectorAll('nav a');
+nav.addEventListener('click', e => {
+    iterateClass(navItems, 'active-nav-item', e);
+});
+
+
+
+
+function iterateClass(collection, className, e) {
+    collection.forEach((item) => {
+        if (e.target === item) {
+            for (let i = 0; i < collection.length; i ++) {
+                collection[i].parentNode.classList.remove(className);
+            }
+            e.target.parentNode.classList.add(className);
+        }
+    });
+}

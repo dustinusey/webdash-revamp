@@ -399,6 +399,10 @@ a {
   font-weight: 900;
 }
 
+.bolder {
+  font-weight: 500;
+}
+
 .members a {
   color: var(--slate2);
   font-weight: 300;
@@ -417,9 +421,44 @@ button {
   width: 100%;
   background: rgba(54, 63, 83, 0.548);
   z-index: 50;
-  transition: 0.7s;
+  transition: 0.3s;
+  padding: 15px;
   opacity: 0;
   pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.overlay .alert-card {
+  margin: auto;
+}
+
+.alert-card {
+  padding: 25px;
+  background: var(--light);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(56, 61, 66, 0.76);
+}
+.alert-card h2 {
+  margin: 10px auto;
+}
+.alert-card p {
+  margin: 25px auto;
+  font-weight: 300;
+  max-width: 400px;
+}
+.alert-card button {
+  background: var(--current-theme);
+  padding: 10px;
+  border: 1px solid var(--light2);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+  outline: none;
+  font-weight: 500;
 }
 
 .dashboard-container {
@@ -562,6 +601,11 @@ header .utility-container .user-container img {
   margin: 0 10px;
 }
 
+@media (min-width: 1024px) {
+  header {
+    border-bottom: 2px solid white;
+  }
+}
 nav {
   display: flex;
   flex-direction: row;
@@ -593,6 +637,9 @@ nav ul li {
   list-style: none;
   color: #3f4a52;
   transition: 0.3s;
+}
+nav ul li .nav-item, nav ul li i {
+  pointer-events: none;
 }
 nav ul li:hover {
   background: rgba(0, 0, 0, 0.08);
@@ -862,6 +909,7 @@ section.social .social-card .svg-container {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  transition: 0.7s;
 }
 section.social .social-card svg {
   width: 50px;

@@ -28,6 +28,7 @@ section.social {
             background: var(--current-theme);
             @include simpleSize(100px);
             @include simpleFlex(row);
+            transition: .7s;
         }
         & svg {
             width: 50px;
