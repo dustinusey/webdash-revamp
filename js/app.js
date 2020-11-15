@@ -378,7 +378,7 @@ sendBtn.addEventListener('click', () => {
     const textField = document.querySelector('form textarea');
     if (userField.value === '' && (textField.value === '')) {
         showOverlay();
-        createAlert('Your message is empty!', 'Please make sure to choose a user to send a massage to as well as write a message.')
+        createAlert('Your message is empty!', 'Please make sure to choose a user to send a message to as well as write a message.')
     } else if
         (userField.value === '') {
             showOverlay();
