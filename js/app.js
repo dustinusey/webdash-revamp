@@ -1,3 +1,6 @@
+
+
+
 const dashContainer = document.querySelector('.dashboard-container');
 const notificationPanel = document.querySelector('.notification-panel');
 dashContainer.addEventListener('click', e => {
@@ -50,6 +53,75 @@ const darkSlate2 = ' #e8eaf3';
 let currentTheme = yellow;
 
 // 
+
+
+// local storage
+
+const checkedEmail = JSON.parse(localStorage.getItem("email-checkbox"));
+document.getElementById("email-checkbox").checked = checkedEmail;
+
+const checkedPrivacy = JSON.parse(localStorage.getItem("profile-checkbox"));
+document.getElementById("privacy-checkbox").checked = checkedPrivacy;
+
+const timezoneSelect = document.getElementById('timezone-select');
+timezoneSelect.value = localStorage.getItem('timezone');
+
+function saveEmailSettings() {
+    const emailCheckbox = document.getElementById("email-checkbox");
+    localStorage.setItem("email-checkbox", emailCheckbox.checked);
+  }
+function savePrivacySettings() {
+    const privacyCheckbox = document.getElementById("privacy-checkbox");
+    localStorage.setItem("profile-checkbox", privacyCheckbox.checked);
+}
+function saveTimezone() {
+    let timezoneSelection = document.getElementById('timezone-select').value;
+    localStorage.setItem('timezone', timezoneSelection);
+    return true;
+}
+
+
+
+
+  const saveBtn = document.querySelector('.save');
+  const cancelBtn = document.querySelector('.cancel');
+
+  saveBtn.addEventListener('click', () => {
+      saveEmailSettings();
+      savePrivacySettings();
+      saveTimezone();
+  });
+
+  cancelBtn.addEventListener('click', () => {
+      localStorage.setItem('email-checkbox', false);
+      localStorage.setItem('privacy-checkbox', false);
+      localStorage.removeItem('timezone', 'Please Choose a Timezone');
+
+      document.getElementById("email-checkbox").checked = checkedEmail;
+      document.getElementById("privacy-checkbox").checked = checkedPrivacy;
+      timezoneSelect.value = localStorage.getItem('timezone');
+      localStorage.removeItem('theme');
+
+  });
+
+
+
+  const themeSelection = document.querySelector('.theme-container');
+  const themeItem = document.querySelectorAll('.theme-container .theme-option')
+  themeSelection.addEventListener('click', e => {
+      themeItem.forEach((item, index) => {
+          if (e.target === item) {
+              localStorage.setItem('theme', themes[index]);
+          }
+      });
+  });
+let activeTheme = localStorage.getItem('theme');
+  root.style.setProperty('--current-theme', activeTheme);
+
+  if (!localStorage.theme) {
+    activeTheme = yellow;
+}
+
 
 const themeContainer = document.querySelector('.theme-container');
 themeContainer.addEventListener('click', e => {
@@ -145,7 +217,7 @@ let trafficChart = new Chart(lineChart, {
             label: '# of visits',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
-                currentTheme
+                activeTheme
             ],
             borderWidth: 2
         }]
@@ -178,13 +250,13 @@ let dailyTraffic = new Chart(barChart, {
             label: '# of Votes',
             data: [12, 7, 3, 5, 2, 18, 10],
             backgroundColor: [
-                currentTheme,
-                currentTheme,
-                currentTheme,
-                currentTheme,
-                currentTheme,
-                currentTheme,
-                currentTheme,
+                activeTheme,
+                activeTheme,
+                activeTheme,
+                activeTheme,
+                activeTheme,
+                activeTheme,
+                activeTheme,
             ],
             borderWidth: 2
         }]
@@ -215,7 +287,7 @@ let mobileTraffic = new Chart(doughnutChart, {
             data: [120, 190, 30],
             backgroundColor: [
                 darkSlate,
-                currentTheme,
+                activeTheme,
                 darkSlate2,
             ],
             borderWidth: 2
@@ -381,3 +453,11 @@ function iterateClass(collection, className, e) {
         }
     });
 }
+
+
+
+
+
+
+
+
