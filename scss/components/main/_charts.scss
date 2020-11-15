@@ -1,4 +1,35 @@
 section.charts {
-    height: 600px;
+    height: auto;
     background: var(--light-shade);
+}
+
+
+.full-size-chart {
+    position: relative;
+    height: 25vh;
+    padding: 15px;
+}
+
+.half-size-charts {
+    @include flex(column, nowrap, center, center);
+    
+        & .chart-parent {
+            position: relative;
+            height: 25vh;
+            width: 100%;
+            padding: 5px 15px;
+            
+        }
+}
+
+@media (min-width: $l) {
+    .half-size-charts {
+        flex-direction: row;
+            & .chart-parent {
+                width: 50%;
+            }
+            & canvas {
+                padding: 5px 15px;
+            }
+    }
 }

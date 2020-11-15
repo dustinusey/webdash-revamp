@@ -121,7 +121,18 @@
 
             <!-- charts -->
             <section id="charts" class="charts">
-
+                
+                <div class="full-size-chart line-chart">
+                    <canvas id="trafficChart"></canvas>
+                </div>
+                <div class="half-size-charts">
+                    <div class="bar-chart chart-parent">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <div class="doughnut-chart chart-parent">
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                </div>
             </section>
             <!-- / charts -->
 
@@ -400,6 +411,9 @@
     </div>
     <!-- END DASHBOARD CONTAINER -->
 
+
+    <!-- chartJS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
     <!-- custom js -->
     <script src="./js/app.js"></script>
 </body>

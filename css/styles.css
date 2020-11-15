@@ -721,10 +721,41 @@ section.alert p i {
 
 /* END DASHBOARD SEARCH */
 section.charts {
-  height: 600px;
+  height: auto;
   background: var(--light-shade);
 }
 
+.full-size-chart {
+  position: relative;
+  height: 25vh;
+  padding: 15px;
+}
+
+.half-size-charts {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.half-size-charts .chart-parent {
+  position: relative;
+  height: 25vh;
+  width: 100%;
+  padding: 5px 15px;
+}
+
+@media (min-width: 1024px) {
+  .half-size-charts {
+    flex-direction: row;
+  }
+  .half-size-charts .chart-parent {
+    width: 50%;
+  }
+  .half-size-charts canvas {
+    padding: 5px 15px;
+  }
+}
 section.social {
   display: flex;
   flex-direction: column;
