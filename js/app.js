@@ -12,11 +12,17 @@ dashContainer.addEventListener('click', e => {
 
 const closeNotifications = document.querySelectorAll('.item i');
 notificationPanel.addEventListener('click', e => {
+    const itemContainer = document.querySelector('.notification-items');
+    
     closeNotifications.forEach((close) => {
         if (e.target === close) {
-            e.target.parentNode.style.display = 'none';
+            e.target.parentNode.remove();
         }
-    })
+    });
+    if (itemContainer.childElementCount === 0) {
+        const notifAlert = document.querySelector('.alert');
+        notifAlert.style.display = 'none';
+    }
 })
 
 // THEME OVERRIDES 
@@ -241,7 +247,7 @@ let mobileTraffic = new Chart(doughnutChart, {
 
 
 
-const alertToggle = document.querySelector('.fa-times');
+const alertToggle = document.querySelector('.close-alert');
 alertToggle.addEventListener('click', e => {
         e.target.parentNode.style.opacity = '0';
         e.target.parentNode.style.pointerEvents = 'none';
