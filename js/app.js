@@ -90,6 +90,8 @@ function saveTimezone() {
       saveEmailSettings();
       savePrivacySettings();
       saveTimezone();
+      showOverlay();
+    createAlert('Settings Saved', 'Your settings have been updated.')
   });
 
   cancelBtn.addEventListener('click', () => {
